@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+
+            <img src="{{object.image.url}}" class="card-img-top" alt="...">
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item"><b>Product : {{object.name}}</b></li>
+                <li class="list-group-item"><b> Description </b> {{object.description}}</li>
+                <li class="list-group-item"><b> Price </b> {{object.price}}/-</li>
+                  <li class="list-group-item"><a href="{% url 'Product_order_create' object.slug %}" class="btn btn-primary">Buy Now</a></li>
+              </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

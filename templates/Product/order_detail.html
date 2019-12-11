@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="col-12">
+        <h3>Order Details</h3>
+        <table class="table">
+        <tr><td>Product</td><td>{{ object.product.name }}</td></tr>
+        <tr><td>Count</td><td>{{ object.count }}</td></tr>
+        <tr><td>Cost</td><td>{{ object.cost }}/-</td></tr>
+        <tr><td>Product Description</td><td>{{ object.product.description }}</td></tr>
+        <tr><td>Price</td><td>{{ object.product.price }}/-</td></tr>
+        <tr><td>address</td><td>{{ object.address }}</td></tr>
+        <tr><td>delivered</td><td>
+            {% if object.delivered %}
+                <p class="text-success">Delivered</p>
+            {% else %}
+                <p class="text-warning">Pending</p>
+            {% endif %}
+        </td></tr>
+        <tr><td>Delivered To</td><td>{{ object.name }}</td></tr>
+        <tr><td>delivered At</td><td>{{ object.address }}</td></tr>
+        </table>
+        {% if not object.delivered %}
+            <div class="col-12 text-right">
+                <a class="btn btn-primary text-right" href="{% url 'Product_order_list' %}">Order List</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

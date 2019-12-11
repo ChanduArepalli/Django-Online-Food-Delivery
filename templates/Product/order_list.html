@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block nav_order %} active {% endblock nav_order %}
+{% block content %}
+<div class="container">
+    <p><a class="btn btn-default" href="{% url 'Product_order_list' %}">Order Listing</a></p>
+    <table class="table">
+    <tr>
+        <td>#</td>
+        <td>Product</td>
+        <td>Count</td>
+        <td>cost</td>
+        <td>Ordered On</td>
+        <td>Last Update</td>
+        <td>Name</td>
+        <td>Delivery To</td>
+        <td>Delivered</td>
+        <td>Delivered On</td>
+    </tr>
+    {% for object in object_list %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td><a href="{{object.get_absolute_url}}">{{object.product.name|upper}}</a></td>
+        <td>{{ object.count }}</td>
+        <td>{{ object.cost }}/-</td>
+        <td>{{ object.created }}</td>
+        <td>{{ object.last_updated }}</td>
+        <td>{{ object.name }}</td>
+        <td>{{ object.address }}</td>
+        <td>
+            {% if object.delivered %}
+                <p class="text-success">delivered</p>
+            {% else %}
+                <p class="text-danger">Will be delivered</p>
+            {% endif %}
+        </td>
+        <td>{{ object.delivered_on | default:"Soon"}}</td>
+    </tr>
+    {% endfor %}
+</div>
+{% endblock %}
