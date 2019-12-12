@@ -1,4 +1,4 @@
-# Online Food Delivery developed by Django
+# Online Food Delivery developed by using Django
 
 ## Requirements
 - Python 3.* version
