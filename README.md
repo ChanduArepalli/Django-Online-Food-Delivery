@@ -3,7 +3,7 @@
 ## Requirements
 - Python 3.* version
 
-## Installing Process
+## Project Setup Process
 
 ### For Windows
 ```javascript
