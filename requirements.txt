@@ -2,7 +2,7 @@ Django==2.2.18
 django-crispy-forms==1.7.0
 django-currentuser==0.4.2
 django-extensions==2.2.5
-Pillow==8.1.1
+Pillow==9.0.1
 pytz==2019.3
 six==1.13.0
 sqlparse==0.3.0
